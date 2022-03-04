@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 mongoose
-    .connect("mongodb://localhost:27017/ABBApoc", {
+    .connect("mongodb://localhost:27017/liveSearch", {
+    // .connect("mongodb://localhost:27017/ABBApoc", {
+    // .connect("mongodb://localhost:27017/liveSearch", {
         useUnifiedTopology: true,
         useNewUrlParser: true,
     })
@@ -20,14 +22,19 @@ mongoose
             systemTime: { type: Date, default: Date.now }   //修改時間
         }
     );
+    // const Search = mongoose.model("areaders", areaderSchema);
 
-
-// const searchSchema = new mongoose.Schema({
-//     title: String,
-//     url: String,
-// });
-
-const Search = mongoose.model("areaders", areaderSchema);
+    const searchSchema = new mongoose.Schema(
+        {
+        title: { type: String },
+        url: { type: String }
+        }
+    );
+    // 不能用 "search" 會讀到[]的
+    // const Search = mongoose.model("search", searchSchema);
+    // const Search = mongoose.model("areaders", areaderSchema);
+    // const Search = mongoose.model("test001", searchSchema);
+    const Search = mongoose.model("test002", searchSchema);
 
 const app = express();
 app.set("view engine", "ejs");
@@ -49,48 +56,48 @@ app
         if (searchQ.length > 0) {
             console.log(searchQ);
 
-            Search.find()
-                .exec(function (err, stories) {
-                    if (err) return handleError(err);
+            // Search.find()
+            //     .exec(function (err, stories) {
+            //         if (err) return handleError(err);
 
-                    console.log(stories);
-                })
+            //         console.log(stories);
+            //     })
 
-            // Search.find(function (err, results) {
-            //     if (err) {
-            //         console.log(err);
-            //     } else {
-            //         results.forEach(function (sResult) {
-            //             console.log(sResult.title);
-            //             if (sResult.title.indexOf(searchQ) !== -1) {
-            //                 if (hint === "") {
-            //                     hint =
-            //                         "<a href='" +
-            //                         sResult.url +
-            //                         "' target='_blank'>" +
-            //                         sResult.title +
-            //                         "</a>";
-            //                 } else if (filterNum < 6) {
-            //                     hint =
-            //                         hint +
-            //                         "<br /><a href='" +
-            //                         sResult.url +
-            //                         "' target='_blank'>" +
-            //                         sResult.title +
-            //                         "</a>";
-            //                     filterNum++;
-            //                 }
-            //             }
-            //         });
-            //     }
-            //     if (hint === "") {
-            //         response = "no suggestion";
-            //     } else {
-            //         response = hint;
-            //     }
+            Search.find(function (err, results) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    results.forEach(function (sResult) {
+                        // console.log(sResult);
+                        if (sResult.title.indexOf(searchQ) !== -1) {
+                            if (hint === "") {
+                                hint =
+                                    "<a href='" +
+                                    sResult.url +
+                                    "' target='_blank'>" +
+                                    sResult.title +
+                                    "</a>";
+                            } else if (filterNum < 6) {
+                                hint =
+                                    hint +
+                                    "<br /><a href='" +
+                                    sResult.url +
+                                    "' target='_blank'>" +
+                                    sResult.title +
+                                    "</a>";
+                                filterNum++;
+                            }
+                        }
+                    });
+                }
+                if (hint === "") {
+                    response = "no suggestion";
+                } else {
+                    response = hint;
+                }
 
-            //     res.send({ response: response });
-            // });
+                res.send({ response: response });
+            });
         }
     });
 

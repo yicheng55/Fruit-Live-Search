@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "61c58312971d5ffc31ffc469"
+  },
+  "Hostname": "AL1320R09",
+  "IP": "192.168.68.80",
+  "Areaname": "Block_A",
+  "Model": "AL1320",
+  "Description": "桌機測試",
+  "systemTime": {
+    "$date": "2021-12-24T08:21:38.520Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c5836a971d5ffc31ffc46e"
+  },
+  "Hostname": "AL1320R10",
+  "IP": "192.168.68.81",
+  "Areaname": "Block_B",
+  "Model": "AL1320",
+  "Description": "桌機測試",
+  "systemTime": {
+    "$date": "2021-12-24T08:23:06.423Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bab715f1fcb7ae6e11835d"
+  },
+  "Hostname": "DMGW009",
+  "IP": "192.168.31.241",
+  "Areaname": "Block_A",
+  "Model": "AL1320",
+  "Description": "桌上測試用",
+  "systemTime": {
+    "$date": "2021-12-16T03:48:37.077Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bab748f1fcb7ae6e118360"
+  },
+  "Hostname": "ALGW01",
+  "IP": "192.168.31.179",
+  "Areaname": "Block_B",
+  "Model": "AL1320",
+  "Description": "桌上測試用",
+  "systemTime": {
+    "$date": "2021-12-16T03:49:28.908Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bef995ef4e58f24a767594"
+  },
+  "Hostname": "ALGW02",
+  "IP": "192.168.68.103",
+  "Areaname": "Block_A",
+  "Model": "AL1320",
+  "Description": "",
+  "systemTime": {
+    "$date": "2021-12-19T09:21:25.143Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61bef9b5ef4e58f24a767597"
+  },
+  "Hostname": "ALGW03",
+  "IP": "192.168.68.106",
+  "Areaname": "Block_B",
+  "Model": "AL1320",
+  "Description": "",
+  "systemTime": {
+    "$date": "2021-12-19T09:21:57.852Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c13213f019cc1502ec4d8e"
+  },
+  "Hostname": "AL1320R09",
+  "IP": "192.168.68.80",
+  "Areaname": "Block_A",
+  "Model": "Block_A",
+  "Description": "",
+  "systemTime": {
+    "$date": "2021-12-21T02:41:23.173Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61c13233f019cc1502ec4d91"
+  },
+  "Hostname": "AL1320R10",
+  "IP": "192.168.68.81",
+  "Areaname": "Block_B",
+  "Model": "Block_B",
+  "Description": "",
+  "systemTime": {
+    "$date": "2021-12-21T02:41:45.798Z"
+  },
+  "__v": 0
+}]
